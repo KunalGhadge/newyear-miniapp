@@ -24,10 +24,10 @@ export const CARD_ITEMS: CardItem[] = [
 ];
 
 export const MOMENT_ITEMS: MomentItem[] = [
-  { id: 1, url: "https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=500&q=80", caption: "Our Dreams" },
-  { id: 2, url: "https://images.unsplash.com/photo-1474540412665-1cdae210ae6b?w=500&q=80", caption: "Infinite Hope" },
-  { id: 3, url: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500&q=80", caption: "Love Letters" },
-  { id: 4, url: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500&q=80", caption: "Future Us" },
+  { id: 1, url: "./assets/moment1.jpg", caption: "My Angel" },
+  { id: 2, url: "./assets/moment2.jpg", caption: "Infinite Love" },
+  { id: 3, url: "./assets/moment3.jpg", caption: "Sweet Wishes" },
+  { id: 4, url: "./assets/moment4.jpg", caption: "My Future" },
 ];
 
 export const LETTER_CONTENT = `My Dearest ${APP_CONFIG.receiverName},
