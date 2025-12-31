@@ -2,7 +2,7 @@ import { CardItem, MomentItem, QuestionItem } from './types';
 
 // CENTRAL CONFIG - Change these values to customize the app
 export const APP_CONFIG = {
-  senderName: "Sharu",
+  senderName: "Sharonraj",
   receiverName: "Gayatri",
   year: "2026",
   ticketId: "SHARU-LOVES-GAYATRI-FOREVER",
@@ -24,24 +24,24 @@ export const CARD_ITEMS: CardItem[] = [
 ];
 
 export const MOMENT_ITEMS: MomentItem[] = [
-  { id: 1, url: "./assets/moment1.jpg", caption: "My Angel" },
-  { id: 2, url: "./assets/moment2.jpg", caption: "Infinite Love" },
-  { id: 3, url: "./assets/moment3.jpg", caption: "Sweet Wishes" },
-  { id: 4, url: "./assets/moment4.jpg", caption: "My Future" },
+  { id: 1, url: "assets/moment1.jpg", caption: "My Angel" },
+  { id: 2, url: "assets/moment2.jpg", caption: "Infinite Love" },
+  { id: 3, url: "assets/moment3.jpg", caption: "Sweet Wishes" },
+  { id: 4, url: "assets/moment4.jpg", caption: "My Future" },
 ];
 
-export const LETTER_CONTENT = `My Dearest ${APP_CONFIG.receiverName},
+export const LETTER_CONTENT = `Hii, sweetuuu.
 
-As I sit down to write this, my heart is overflowing with emotions that words can barely capture. From the moment you walked into my life, everything changed in the most beautiful way possible.
+Pata nhi kese Madam Ji se sweeeetuuu ban gaye aap. Ye 2 saal hamne sath bitaye kabhi laga hi nahi ki aap koi dusre ho, aaj jhagdte to dusre pal wapas wahi baato me kho jate he.
 
-You are not just my love; you are my best friend, my confidant, and my greatest supporter. Every day with you feels like a new adventure, a new reason to smile.
+Aaj bhi yaad he mujhe, kese mile the ham.. Wada kiya tha ki hamesha apke sath rahunga or protect karunga, bestfriend banaya tha na apne mujhe?
 
-I wanted to make this little experience to show you just a fraction of how much you mean to me. Thank you for being you. Thank you for choosing me.
+Halaki protect aaj bhi kar rha hu lekin bestfriend banke nhi boyfriend banke.. Hope jo ham chahte he wo bhi ho jaye jaldi.
 
-Here's to us, to our memories, and to a future filled with endless love and laughter.
+Bas ye jo naya saal he yaha se ab as a boyfriend and girlfriend banke jeena he.
 
-Forever yours,
-${APP_CONFIG.senderName} ❤️`;
+Your Sharonraj
+I will always love you ❤️`;
 
 export const SOUNDS = {
   bgm: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112762.mp3", 
