@@ -45,10 +45,22 @@ const PhaseMoments: React.FC<PhaseMomentsProps> = ({ onComplete, playSound }) =>
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
                         e.currentTarget.parentElement?.classList.add('bg-rose-100');
-                        // Show a fallback icon
+                        
+                        // Check if fallback already exists to prevent duplicates
+                        if (e.currentTarget.parentElement?.querySelector('.fallback-msg')) return;
+
                         const fallback = document.createElement('div');
-                        fallback.className = 'flex flex-col items-center justify-center text-rose-300';
-                        fallback.innerHTML = '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg><span class="text-xs mt-2">Image not found</span>';
+                        fallback.className = 'fallback-msg flex flex-col items-center justify-center text-rose-300 p-4 text-center';
+                        fallback.innerHTML = `
+                          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                            <line x1="3" y1="3" x2="21" y2="21"></line>
+                          </svg>
+                          <span class="text-xs mt-2 font-bold">Image Not Found</span>
+                          <span class="text-[10px] mt-1 opacity-70 break-all">Path: ${item.url}</span>
+                        `;
                         e.currentTarget.parentElement?.appendChild(fallback);
                       }}
                    />

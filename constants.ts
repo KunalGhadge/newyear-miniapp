@@ -23,13 +23,28 @@ export const CARD_ITEMS: CardItem[] = [
   { id: 5, text: "Just being near you makes me happy.", emoji: "🥰", color: "bg-gradient-to-br from-emerald-100 to-green-200" },
 ];
 
-// Ensure images are in the /public/assets folder
-// Recommended Resolution: 800x1000px (Portrait)
+// Updated with direct Postimages links provided by the user
 export const MOMENT_ITEMS: MomentItem[] = [
-  { id: 1, url: "assets/moment1.jpg", caption: "My Angel" },
-  { id: 2, url: "assets/moment2.jpg", caption: "Infinite Love" },
-  { id: 3, url: "assets/moment3.jpg", caption: "Sweet Wishes" },
-  { id: 4, url: "assets/moment4.jpg", caption: "My Future" },
+  { 
+    id: 1, 
+    url: "https://i.postimg.cc/wjPkznfR/Whats-App-Image-2025-12-31-at-11-11-53-PM.jpg", 
+    caption: "My Angel" 
+  },
+  { 
+    id: 2, 
+    url: "https://i.postimg.cc/4yJ6wGyd/Whats-App-Image-2025-12-31-at-11-11-53-PM-(2).jpg", 
+    caption: "Infinite Love" 
+  },
+  { 
+    id: 3, 
+    url: "https://i.postimg.cc/DZcsSN6F/Whats-App-Image-2025-12-31-at-11-11-53-PM-(1).jpg", 
+    caption: "Sweet Wishes" 
+  },
+  { 
+    id: 4, 
+    url: "https://i.postimg.cc/WpXgjQtt/Whats-App-Image-2025-12-31-at-11-11-54-PM.jpg", 
+    caption: "My Future" 
+  },
 ];
 
 export const LETTER_CONTENT = `Hii, sweetuuu. 
