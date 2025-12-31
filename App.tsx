@@ -31,6 +31,29 @@ const App: React.FC = () => {
     };
   }, []);
 
+  // Handle visibility change (pause on tab switch/minimize)
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (!audioRef.current) return;
+      
+      if (document.hidden) {
+        audioRef.current.pause();
+      } else {
+        // Only resume if not locally muted
+        if (!isMuted) {
+          audioRef.current.play().catch(() => {
+            // Auto-play might be blocked if no interaction yet, which is fine
+          });
+        }
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [isMuted]);
+
   const playSound = (type: string) => {
     if (isMuted) return;
     

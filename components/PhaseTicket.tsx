@@ -77,7 +77,7 @@ const PhaseTicket: React.FC<PhaseTicketProps> = ({ onComplete, playSound }) => {
               <p className="text-yellow-100 font-serif italic text-lg">"Unlimited Hugs & Love"</p>
               
               <div className="absolute bottom-3 text-[10px] text-yellow-500/50 font-mono tracking-widest">
-                 ID: SHARU-LOVES-GAYATRI-2024
+                 ID: SHARU-LOVES-GAYATRI-2025-∞
               </div>
            </div>
         </div>
