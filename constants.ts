@@ -23,6 +23,8 @@ export const CARD_ITEMS: CardItem[] = [
   { id: 5, text: "Just being near you makes me happy.", emoji: "🥰", color: "bg-gradient-to-br from-emerald-100 to-green-200" },
 ];
 
+// Ensure images are in the /public/assets folder
+// Recommended Resolution: 800x1000px (Portrait)
 export const MOMENT_ITEMS: MomentItem[] = [
   { id: 1, url: "assets/moment1.jpg", caption: "My Angel" },
   { id: 2, url: "assets/moment2.jpg", caption: "Infinite Love" },
@@ -30,18 +32,18 @@ export const MOMENT_ITEMS: MomentItem[] = [
   { id: 4, url: "assets/moment4.jpg", caption: "My Future" },
 ];
 
-export const LETTER_CONTENT = `Hii, sweetuuu.
+export const LETTER_CONTENT = `Hii, sweetuuu. 
 
-Pata nhi kese Madam Ji se sweeeetuuu ban gaye aap. Ye 2 saal hamne sath bitaye kabhi laga hi nahi ki aap koi dusre ho, aaj jhagdte to dusre pal wapas wahi baato me kho jate he.
+Pata nhi kese Madam Ji se sweeeetuuu ban gaye aap. Ye 2 saal hamne sath bitaye kabhi laga hi nahi ki aap koi dusre ho, aaj jhagdte to dusre pal wapas wahi baato me kho jate he. 
 
-Aaj bhi yaad he mujhe, kese mile the ham.. Wada kiya tha ki hamesha apke sath rahunga or protect karunga, bestfriend banaya tha na apne mujhe?
+Aaj bhi yaad he mujhe, kese mile the ham.. Wada kiya tha ki hamesha apke sath rahunga or protect karunga, bestfriend banaya tha na apne mujhe? 
 
-Halaki protect aaj bhi kar rha hu lekin bestfriend banke nhi boyfriend banke.. Hope jo ham chahte he wo bhi ho jaye jaldi.
+Halaki protect aaj bhi kar rha hu lekin bestfriend banke nhi boyfriend banke.. Hope jo ham chahte he wo bhi ho jaye jaldi. 
 
 Bas ye jo naya saal he yaha se ab as a boyfriend and girlfriend banke jeena he.
 
 Your Sharonraj
-I will always love you ❤️`;
+I will always love you`;
 
 export const SOUNDS = {
   bgm: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112762.mp3", 

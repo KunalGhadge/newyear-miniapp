@@ -34,6 +34,9 @@ A premium, mobile-first interactive web experience designed to be the perfect di
     npm run dev
     ```
 
+3.  **Important:**
+    Create a `public` folder in your root directory and move the `assets` folder inside it for images to load correctly!
+
 ## 🎨 Customization
 
 To personalize this for your special someone, edit `src/constants.ts`:
@@ -42,13 +45,6 @@ To personalize this for your special someone, edit `src/constants.ts`:
 *   **`MOMENT_ITEMS`**: Replace image URLs with your own photos.
 *   **`LETTER_CONTENT`**: Write your own heartfelt message.
 *   **`QUESTIONS`**: Customize the quiz interactions.
-
-## 📱 Mobile Optimized
-
-Designed specifically for mobile devices with:
-*   Touch-action manipulation prevention.
-*   Prevented text selection for app-like feel.
-*   Background audio state management (pauses on minimize).
 
 ---
 

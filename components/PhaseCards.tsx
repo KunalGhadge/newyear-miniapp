@@ -78,7 +78,7 @@ const PhaseCards: React.FC<PhaseCardsProps> = ({ onComplete, playSound }) => {
                 exit={{ x: Math.random() > 0.5 ? 500 : -500, rotate: 45, opacity: 0 }}
                 whileTap={isTop ? { cursor: "grabbing" } : {}}
                 className={`absolute w-full h-full rounded-3xl shadow-2xl flex flex-col items-center justify-center p-8 border-4 border-white/50 backdrop-blur-md cursor-grab ${card.color} text-slate-800`}
-                style={{ transformOrigin: "bottom center" }}
+                style={{ transformOrigin: "bottom center" } as any}
               >
                 <div className="absolute top-4 right-4 opacity-40 text-white">
                     <Star size={32} fill="currentColor" />

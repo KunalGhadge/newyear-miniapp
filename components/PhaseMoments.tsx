@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Heart } from 'lucide-react';
+import { ArrowDown, Heart, ImageOff } from 'lucide-react';
 import { MOMENT_ITEMS } from '../constants';
 
 interface PhaseMomentsProps {
@@ -36,12 +36,21 @@ const PhaseMoments: React.FC<PhaseMomentsProps> = ({ onComplete, playSound }) =>
             >
               <div className="absolute inset-0 bg-white/5 blur-xl transform scale-90 group-hover:scale-105 transition-transform"></div>
               <div className="bg-white p-4 pb-12 shadow-2xl transform transition-transform duration-500 hover:scale-[1.02] hover:rotate-0 hover:z-10 relative">
-                <div className="aspect-[4/5] bg-gray-200 overflow-hidden mb-4 filter sepia-[0.2]">
+                <div className="aspect-[4/5] bg-gray-200 overflow-hidden mb-4 filter sepia-[0.2] relative flex items-center justify-center">
                    <img 
                       src={item.url} 
                       alt={item.caption} 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.parentElement?.classList.add('bg-rose-100');
+                        // Show a fallback icon
+                        const fallback = document.createElement('div');
+                        fallback.className = 'flex flex-col items-center justify-center text-rose-300';
+                        fallback.innerHTML = '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg><span class="text-xs mt-2">Image not found</span>';
+                        e.currentTarget.parentElement?.appendChild(fallback);
+                      }}
                    />
                 </div>
                 <div className="absolute bottom-4 left-0 w-full text-center">

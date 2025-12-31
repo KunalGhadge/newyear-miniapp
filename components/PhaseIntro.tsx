@@ -15,7 +15,24 @@ const PhaseIntro: React.FC<PhaseIntroProps> = ({ onComplete, playSound }) => {
   const controls = useAnimation();
   const completedRef = useRef(false);
 
+  // Monitor progress changes to trigger completion reliably
+  useEffect(() => {
+    if (progress >= 100 && !completedRef.current) {
+      completedRef.current = true;
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      
+      playSound('success');
+      
+      // Short delay for visual feedback before switching
+      setTimeout(() => {
+        onComplete();
+      }, 500);
+    }
+  }, [progress, onComplete, playSound]);
+
   const startFilling = useCallback(() => {
+    if (completedRef.current) return;
+
     setIsHolding(true);
     controls.start({ scale: 1.1 });
     
@@ -24,15 +41,17 @@ const PhaseIntro: React.FC<PhaseIntroProps> = ({ onComplete, playSound }) => {
     intervalRef.current = window.setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
-          if (intervalRef.current) clearInterval(intervalRef.current);
           return 100;
         }
-        return prev + 2; // Slightly faster filling for better feel
+        return prev + 2; // Fill speed
       });
-    }, 16); // ~60fps
+    }, 16);
   }, [controls]);
 
   const stopFilling = useCallback(() => {
+    // If we are already done or just hit 100, do NOT drain
+    if (completedRef.current || progress >= 100) return;
+
     setIsHolding(false);
     controls.start({ scale: 1 });
     if (intervalRef.current) clearInterval(intervalRef.current);
@@ -43,18 +62,10 @@ const PhaseIntro: React.FC<PhaseIntroProps> = ({ onComplete, playSound }) => {
           if (intervalRef.current) clearInterval(intervalRef.current);
           return 0;
         }
-        return prev - 5;
+        return prev - 5; // Drain speed
       });
     }, 16);
-  }, [controls]);
-
-  useEffect(() => {
-    if (progress >= 100 && !completedRef.current) {
-      completedRef.current = true;
-      playSound('success');
-      onComplete();
-    }
-  }, [progress, onComplete, playSound]);
+  }, [controls, progress]);
 
   useEffect(() => {
     return () => {
@@ -69,7 +80,6 @@ const PhaseIntro: React.FC<PhaseIntroProps> = ({ onComplete, playSound }) => {
         animate={{ opacity: 1, y: 0 }}
         className="mb-16 relative"
       >
-        {/* Optimized blur layer */}
         <div className="absolute -inset-10 bg-rose-500/10 blur-2xl rounded-full transform-gpu" />
         <h1 className="font-cute text-5xl md:text-6xl text-rose-100 mb-4 relative z-10 drop-shadow-lg will-change-transform">
           For {APP_CONFIG.receiverName}
@@ -80,7 +90,6 @@ const PhaseIntro: React.FC<PhaseIntroProps> = ({ onComplete, playSound }) => {
       </motion.div>
 
       <div className="relative w-40 h-40 flex items-center justify-center rounded-full">
-        {/* Glow - Optimized */}
         <motion.div 
           animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.1, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
@@ -117,12 +126,12 @@ const PhaseIntro: React.FC<PhaseIntroProps> = ({ onComplete, playSound }) => {
               strokeDashoffset={465 - (465 * progress) / 100}
               strokeLinecap="round"
               className="drop-shadow-[0_0_10px_rgba(251,113,133,0.8)]"
-              style={{ willChange: 'stroke-dashoffset' }}
+              style={{ willChange: 'stroke-dashoffset' } as any}
             />
           </svg>
 
           <motion.div animate={controls} className="text-rose-300 relative z-10">
-            {isHolding ? (
+            {isHolding || completedRef.current ? (
               <Heart size={64} fill="#fb7185" className="animate-pulse" />
             ) : (
               <Fingerprint size={64} strokeWidth={1.5} />
@@ -132,8 +141,8 @@ const PhaseIntro: React.FC<PhaseIntroProps> = ({ onComplete, playSound }) => {
       </div>
 
       <motion.div className="mt-12 h-8">
-        <p className={`font-cute tracking-widest transition-colors duration-300 ${isHolding ? 'text-rose-300' : 'text-white/40'}`}>
-          {isHolding ? 'SCANNING LOVE...' : 'HOLD TO BEGIN'}
+        <p className={`font-cute tracking-widest transition-colors duration-300 ${isHolding || completedRef.current ? 'text-rose-300' : 'text-white/40'}`}>
+          {completedRef.current ? 'ACCESS GRANTED' : (isHolding ? 'SCANNING LOVE...' : 'HOLD TO BEGIN')}
         </p>
       </motion.div>
     </div>

@@ -93,7 +93,7 @@ const PhaseQuestions: React.FC<PhaseQuestionsProps> = ({ onComplete, playSound }
                 onPointerDown={moveNoButton} // Catch-all for pointer events
                 onClick={moveNoButton} // Fallback
                 className="bg-rose-500 hover:bg-rose-400 text-white font-cute text-sm py-2 px-6 rounded-full shadow-lg opacity-80 z-10 absolute bottom-0 select-none touch-manipulation transform-gpu"
-                style={{ WebkitTapHighlightColor: 'transparent' }}
+                style={{ WebkitTapHighlightColor: 'transparent' } as any}
             >
                 {currentQ.noText}
             </motion.button>
